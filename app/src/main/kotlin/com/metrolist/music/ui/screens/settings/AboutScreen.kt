@@ -72,7 +72,7 @@ fun AboutScreen(
             contentDescription = null,
             modifier = Modifier
                 .clip(CircleShape)
-                .background(Color.White)
+                .background(MaterialTheme.colorScheme.surface)
                 .clickable { },
         )
 
