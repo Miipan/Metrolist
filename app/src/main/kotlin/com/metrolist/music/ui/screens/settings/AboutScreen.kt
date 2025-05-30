@@ -70,10 +70,9 @@ fun AboutScreen(
         Image(
             painter = painterResource(R.drawable.about_splash),
             contentDescription = null,
-            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onBackground, BlendMode.SrcIn),
             modifier = Modifier
                 .clip(CircleShape)
-                .background(MaterialTheme.colorScheme.surfaceContainer)
+                .background(Color.White)
                 .clickable { },
         )
 
