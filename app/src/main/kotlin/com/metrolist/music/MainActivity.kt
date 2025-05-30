@@ -588,9 +588,9 @@ class MainActivity : ComponentActivity() {
 
                     val currentTitle = remember(navBackStackEntry) {
                         when (navBackStackEntry?.destination?.route) {
-                            Screens.Home.route -> R.string.home
-                            Screens.Explore.route -> R.string.explore
-                            Screens.Library.route -> R.string.filter_library
+                            Screens.Home.route,
+                            Screens.Explore.route,
+                            Screens.Library.route -> R.string.music
                             else -> null
                         }
                     }

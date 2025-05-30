@@ -81,12 +81,14 @@ fun AboutScreen(
             verticalAlignment = Alignment.Top,
         ) {
             Text(
-                text = "METROLIST",
+                text = "YouTube Music",
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
             )
         }
+
+        Spacer(Modifier.height(4.dp))
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
@@ -142,36 +144,6 @@ fun AboutScreen(
                             horizontal = 6.dp,
                             vertical = 2.dp,
                         ),
-                )
-            }
-        }
-
-        Spacer(Modifier.height(4.dp))
-
-        Text(
-            text = "MO AGAMY",
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-
-        Spacer(Modifier.height(8.dp))
-
-        Row {
-            IconButton(
-                onClick = { uriHandler.openUri("https://github.com/mostafaalagamy/metrolist") },
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.github),
-                    contentDescription = null
-                )
-            }
-
-            IconButton(
-                onClick = { uriHandler.openUri("https://www.instagram.com/mostafaalagamy") }
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.instagram),
-                    contentDescription = null
                 )
             }
         }
