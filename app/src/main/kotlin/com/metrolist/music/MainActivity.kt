@@ -103,6 +103,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.draw.clip
+import androidx.navigation.NavController
+import coil.compose.AsyncImage
 import coil.imageLoader
 import coil.request.ImageRequest
 import com.metrolist.innertube.YouTube
@@ -622,17 +626,33 @@ class MainActivity : ComponentActivity() {
                                                     contentDescription = stringResource(R.string.search)
                                                 )
                                             }
-                                            IconButton(onClick = { navController.navigate("settings") }) {
-                                                BadgedBox(badge = {
-                                                    if (latestVersionName != BuildConfig.VERSION_NAME) {
-                                                        Badge()
-                                                    }
-                                                }) {
-                                                    Icon(
-                                                        painter = painterResource(R.drawable.settings),
-                                                        contentDescription = stringResource(R.string.settings),
-                                                        modifier = Modifier.size(24.dp)
+                                            IconButton(onClick = { 
+                                                if (isLoggedIn) {
+                                                    navController.navigate("accountSettings")
+                                                } else {
+                                                    navController.navigate("settings")
+                                                }
+                                            }) {
+                                                if (isLoggedIn && accountImageUrl != null) {
+                                                    AsyncImage(
+                                                        model = accountImageUrl,
+                                                        contentDescription = stringResource(R.string.account),
+                                                        modifier = Modifier
+                                                            .size(24.dp)
+                                                            .clip(CircleShape)
                                                     )
+                                                } else {
+                                                    BadgedBox(badge = {
+                                                        if (latestVersionName != BuildConfig.VERSION_NAME) {
+                                                            Badge()
+                                                        }
+                                                    }) {
+                                                        Icon(
+                                                            painter = painterResource(R.drawable.settings),
+                                                            contentDescription = stringResource(R.string.settings),
+                                                            modifier = Modifier.size(24.dp)
+                                                        )
+                                                    }
                                                 }
                                             }
                                         },
